@@ -12,12 +12,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<script>
-function update(newid, newqty)
-{
-	window.location="showcart.jsp? update="+newid+"&newqty="+newqty;
-}
-</script>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
