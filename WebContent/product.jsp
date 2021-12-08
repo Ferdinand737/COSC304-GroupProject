@@ -52,8 +52,8 @@ out.println("<h3><a href=\"" + linkAdd + "\">Add to Cart</a></h3>");
 out.println("<h4>Reviews</h4>");
 %>
 <form method="get" action="product.jsp">
-<h8>How Many Stars?(/10)</h8>
-<input type="number" name="Rating" size="10">
+<h8>How Many Stars?(/5)</h8>
+<input type="Range" name="Rating" min="0" max="5">
 <h8>Leave a Written Review</h8>
 <input type="text" name="Review" size="100">
 <input type="submit" value="Submit">

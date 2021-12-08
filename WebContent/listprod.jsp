@@ -12,13 +12,24 @@
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">
-<input type="text" name="productName" size="50">
-<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
+	<label for="sort">Sort By:</label>
+  	<select id="sort" name="sort">
+    	<option value="productPrice">price</option>
+    	<option value="reviewRating ASC">rating</option>
+    	<!--<option value="quantity sold ASC">quantity sold</option> -->
+		<option value="productPrice DESC">price Descending</option>
+    	<option value="reviewRating DESC">rating Descending</option>
+    	<!--<option value="quantity sold DESC">quanitiy sold Descending</option> -->
+  	</select>
+	<input type="text" name="productName" size="50">
+	<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
 </form>
 
 <% // Get product name to search for
 String name = request.getParameter("productName");
-String category = request.getParameter("category");		
+String category = request.getParameter("category");
+String sort = request.getParameter("sort");
+
 //Note: Forces loading of SQL Server driver
 try
 {	// Load driver class
@@ -49,12 +60,21 @@ Connection con = DriverManager.getConnection(url, uid, pw);
 // Print out the ResultSet
 PreparedStatement stmt;
 if(name == null){
-    String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId";
-    stmt = con.prepareStatement(str);
+	if(sort == null)
+	{
+    	String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId;";
+    	stmt = con.prepareStatement(str);
+	} else {
+    	String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId ORDER BY productPrice;";
+    	stmt = con.prepareStatement(str);
+		stmt.setString(1, sort);		
+	}
+
 } else {
-    String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId WHERE productName LIKE ?";
+    String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId WHERE productName LIKE ? ORDER BY "+sort+";";
     stmt = con.prepareStatement(str);
     stmt.setString(1, "%"+name+"%");
+	//stmt.setString(2, sort);
 }
     
 ResultSet rst = stmt.executeQuery();
