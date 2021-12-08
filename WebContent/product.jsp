@@ -66,7 +66,7 @@ if(review != null)
     String sqlInsert = "INSERT INTO review (reviewRating, reviewDate, customerId, productId, reviewComment) VALUES( ?, ?, ?, ?, ?);";
     stmt = con.prepareStatement(sqlInsert);
     stmt.setInt(1, Integer.parseInt(rating));
-    stmt.setDate(2, java.sql.Date(utilDate.getTime()));
+    stmt.setTimestamp(2,  new java.sql.Timestamp(new java.util.Date().getTime()));
     stmt.setInt(3, 1);
     stmt.setInt(4, pId);
     stmt.setString(5, review);
@@ -74,14 +74,14 @@ if(review != null)
     stmt.executeUpdate();
 
 }
-sql = "SELECT reviewRating, reviewComment, reviewDate FROM review WHERE productId=? ORDER BY reviewDate DESC";
+sql = "SELECT reviewRating, reviewComment, reviewDate FROM review WHERE productId=? ORDER BY reviewRating DESC";
 stmt = con.prepareStatement(sql);
 stmt.setInt(1, pId);
 rst = stmt.executeQuery();
 out.println("<table><tbody>");
 out.println("<tr><th>Rating</th><th>Comment</th><th>Date Posted</th></tr>");
 while (rst.next()) {
-    out.println("<tr><th>"+rst.getInt(1)+"</th><th>"+rst.getString(2)+"</th>th>"+rst.getDate(3)+"</th></tr>");
+    out.println("<tr><th>"+rst.getInt(1)+"</th><th>"+rst.getString(2)+"</th><th>"+rst.getDate(3)+"</th></tr>");
 }
 out.println("</table></tbody>");
 %>
