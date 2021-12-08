@@ -15,10 +15,10 @@
 	<label for="sort">Sort By:</label>
   	<select id="sort" name="sort">
     	<option value="productPrice">price</option>
-    	<option value="reviewRating ASC">rating</option>
+    	<option value="AVG(reviewRating)">rating</option>
     	<!--<option value="quantity sold ASC">quantity sold</option> -->
 		<option value="productPrice DESC">price Descending</option>
-    	<option value="reviewRating DESC">rating Descending</option>
+    	<option value="AVG(reviewRating) DESC">rating Descending</option>
     	<!--<option value="quantity sold DESC">quanitiy sold Descending</option> -->
   	</select>
 	<input type="text" name="productName" size="50">
@@ -49,6 +49,7 @@ out.println("<tr>");
 out.println("<th class=\"col-md-1\"></th>");
 out.println("<th>Product Name</th>");
 out.println("<th>Category</th>");
+out.println("<th>Rating</th>");
 out.println("<th>Price</th>");
 out.println("</tr>");
 
@@ -62,25 +63,28 @@ PreparedStatement stmt;
 if(name == null){
 	if(sort == null)
 	{
-    	String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId;";
+    	String str = "SELECT p.productId, productName, productPrice, categoryName, AVG(reviewRating) "
+					+"FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId "
+					+"LEFT JOIN review AS r ON p.productId=r.productId GROUP BY p.productId, productName, productPrice, categoryName ORDER BY p.productId;";
     	stmt = con.prepareStatement(str);
 	} else {
-    	String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId ORDER BY productPrice;";
+    	String str = "SELECT p.productId, productName, productPrice, categoryName, AVG(reviewRating) "
+					+"FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId "
+					+"LEFT JOIN review AS r ON p.productId=r.productId GROUP BY p.productId, productName, productPrice, categoryName ORDER BY productPrice;";
     	stmt = con.prepareStatement(str);
-		stmt.setString(1, sort);		
+		//stmt.setString(1, sort);		
 	}
 
 } else {
-    String str = "SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId WHERE productName LIKE ? ORDER BY "+sort+";";
+    String str = "SELECT p.productId, productName, productPrice, categoryName, AVG(reviewRating) "
+				+"FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId "
+				+"LEFT JOIN review AS r ON p.productId=r.productId WHERE productName LIKE ? GROUP BY p.productId, productName, productPrice, categoryName ORDER BY "+sort+";";
     stmt = con.prepareStatement(str);
     stmt.setString(1, "%"+name+"%");
-	//stmt.setString(2, sort);
 }
     
 ResultSet rst = stmt.executeQuery();
 
-//Statement stmt = con.createStatement();
-//ResultSet rst = stmt.executeQuery("SELECT productId, productName, productPrice, categoryName FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId");
 // For each product create a link of the form
 while(rst.next()){
 	if((category == null) || category.equals(rst.getString(4))) {
@@ -91,6 +95,7 @@ while(rst.next()){
 		out.println("<td class=\"col-md-1\"><a href=\"" + linkAdd + "\">Add to Cart</a></td>");
 		out.println("<td><a href=\"" + linkProd + "\">" +rst.getString(2) + "</td>");
 		out.println("<td><a href=\"" + linkCategory + "\">"+rst.getString(4)+"</td>");
+		out.println("<td>"+rst.getDouble(5)+"</td>");
 		out.println("<td>" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3)) + "</td>");
 		out.println("</tr>");
 	}
