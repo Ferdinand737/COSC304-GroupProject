@@ -24,7 +24,18 @@
 	<input type="text" name="productName" size="50">
 	<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
 </form>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
 
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+</style>
 <% // Get product name to search for
 String name = request.getParameter("productName");
 String category = request.getParameter("category");

@@ -12,6 +12,18 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
+<style>
+table {
+  border-collapse: collapse;
+  width: 70%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+</style>
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -39,7 +51,7 @@ else
 	String linkDelete = "showcart.jsp?delete=";
 	out.println("<h1>Your Shopping Cart</h1>");
 	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
-	out.println("<th>Price</th><th>Subtotal</th><th>Hrlo</th><th>JR</th></tr>");
+	out.println("<th>Price</th><th>Subtotal</th><th></th><th></th></tr>");
 	
 	double total =0;
 	Iterator<Map.Entry<String, ArrayList<Object>>> iterator = productList.entrySet().iterator();
