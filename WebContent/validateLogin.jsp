@@ -11,9 +11,15 @@
 	catch(IOException e)
 	{	System.err.println(e); }
 
-	if(authenticatedUser != null)
-		response.sendRedirect("index.jsp");		// Successful login
-	else
+	if(authenticatedUser != null){
+		switch(authenticatedUser){
+			case "Admin":
+				response.sendRedirect("admin.jsp");
+				break;
+			default:
+			response.sendRedirect("index.jsp");	
+		}	
+	}else
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
 
@@ -32,16 +38,11 @@
 
 		try 
 		{
-			//getConnection();
+			getConnection();
 			
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
 			
-			String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-			String uid = "SA";
-			String pw = "YourStrong@Passw0rd";
-			Connection con = DriverManager.getConnection(url, uid, pw);
-
-			String sql = "SELECT userId, password FROM customer WHERE userid=? AND password=?";
+			String sql = "SELECT userId, password FROM customer WHERE userid=? AND password=?" ;
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, username);
 			stmt.setString(2, password);
@@ -56,8 +57,7 @@
 		}
 		finally
 		{
-			//closeConnection();
-			con.close();
+			//closeConnection(); I don't know why this does not work.
 		}	
 		
 		if(retStr != null)
