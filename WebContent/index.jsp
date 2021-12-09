@@ -7,7 +7,7 @@
         <title>YOUR NAME Grocery Main Page</title>
 </head>
 <body>
-<h1 align="center">Welcome to YOUR NAME Grocery</h1>
+<h1 align="center">Welcome to MAF Grocery</h1>
 
 <h2 align="center"><a href="login.jsp">Login</a></h2>
 
