@@ -48,16 +48,25 @@ out.println("</table></tbody>");
 String linkAdd = "addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2) + "&price=" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3));
 out.println("<h3><a href=\"listprod.jsp\">Continue Shopping</a></h3>");
 out.println("<h3><a href=\"" + linkAdd + "\">Add to Cart</a></h3>");
-
+int cId = 1;
 out.println("<h4>Reviews</h4>");
-%>
-<form method="get" action="product.jsp">
-<h8>How Many Stars?(/5)</h8>
-<input type="Range" name="Rating" min="0" max="5">
-<h8>Leave a Written Review</h8>
-<input type="text" name="Review" size="100">
-<input type="submit" value="Submit">
-<%
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Checks to see if review has been placed by User, 
+/** @todo user MUST be implemented */ 
+stmt = con.prepareStatement("SELECT COUNT(*) FROM review WHERE productId="+pId+" AND customerId="+cId+";");
+rst = stmt.executeQuery();
+rst.next();
+if(rst.getInt(1) < 1)
+{
+    out.println("<form method=\"get\" action=\"product.jsp\">");
+    out.println("<h8>How Many Stars?(/5)</h8>");
+    out.println("<input type=\"Range\" name=\"Rating\" min=\"0\" max=\"5\">");
+    out.println("<h8>Leave a Written Review</h8>");
+    out.println("<input type=\"text\" name=\"Review\" size=\"100\">");
+    out.println("<input type=\"submit\" value=\"Submit\">");
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 out.print("<input type=\"hidden\" name=\"id\" size=\"0\" value=\""+pId+"\">");
 String rating = request.getParameter("Rating");
 String review = request.getParameter("Review");
@@ -67,7 +76,7 @@ if(review != null)
     stmt = con.prepareStatement(sqlInsert);
     stmt.setInt(1, Integer.parseInt(rating));
     stmt.setTimestamp(2,  new java.sql.Timestamp(new java.util.Date().getTime()));
-    stmt.setInt(3, 1);
+    stmt.setInt(3, cId);
     stmt.setInt(4, pId);
     stmt.setString(5, review);
     
