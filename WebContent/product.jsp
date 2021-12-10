@@ -23,15 +23,17 @@ String id = request.getParameter("id");
 // TODO: Retrieve and display info for the product
 // String productId = request.getParameter("id");
 
-String sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productId=?";
+String sql = "SELECT productId, productName, productPrice, productImageURL, productDesc FROM product WHERE productId=?";
 PreparedStatement stmt = con.prepareStatement(sql);
 stmt.setInt(1, Integer.parseInt(id));
 ResultSet rst = stmt.executeQuery();
 rst.next();
 int pId = rst.getInt(1);
 out.println("<h2>"+rst.getString(2)+"</h2>");
+
 // TODO: If there is a productImageURL, display using IMG tag
 out.println("<img src=\""+rst.getString(4)+"\" width=\"200\" height=\"400\">");
+out.println("\n"+"<EM>"+rst.getString(5)+"</EM>");
 //out.println("<img src=\"displayImage.jsp?id="+rst.getInt(1)+"\">");
 
 // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
