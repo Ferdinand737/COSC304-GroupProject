@@ -11,9 +11,15 @@
 	catch(IOException e)
 	{	System.err.println(e); }
 
-	if(authenticatedUser != null)
-		response.sendRedirect("index.jsp");		// Successful login
-	else
+	if(authenticatedUser != null){
+		switch(authenticatedUser){
+			case "Admin":
+				response.sendRedirect("admin.jsp");
+				break;
+			default:
+			response.sendRedirect("index.jsp");	
+		}	
+	}else
 		response.sendRedirect("login.jsp");		// Failed login - redirect back to login page with a message 
 %>
 
@@ -35,14 +41,23 @@
 			getConnection();
 			
 			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
-			retStr = "";			
+			
+			String sql = "SELECT userId, password FROM customer WHERE userid=? AND password=?" ;
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+			ResultSet rst = stmt.executeQuery();
+			rst.next();
+		
+			retStr = rst.getString(1);
+					
 		} 
 		catch (SQLException ex) {
 			out.println(ex);
 		}
 		finally
 		{
-			closeConnection();
+			//closeConnection(); I don't know why this does not work.
 		}	
 		
 		if(retStr != null)
