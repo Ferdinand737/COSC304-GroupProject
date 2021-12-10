@@ -147,65 +147,55 @@ INSERT INTO category(categoryName) VALUES ('Confections');
 INSERT INTO category(categoryName) VALUES ('Grains/Cereals');
 
 --beverages
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 1,"Bombay Gin" , 39.99,"IMG/01.jpg" ,"Every COSCS student favorite sleep aid" ,1)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 2,"Tito's Vodka" ,39.99,"IMG/02.jpg" ,"Finally, a vodka that doesn't taste like hand sanitizer" ,1)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 3,"Appletons Rum" ,29.99 ,"IMG/03.jpg" ,"When you need a mental break before your scheduled mental breakdown" ,1)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 4,"Cabo Wabo Tequila" ,79.99 ,"IMG/04.jpg","Tequilla solves the question of how to feel like you've been punched in the mouth without insulting your step dad." ,1)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 5,"Jamesons Whiskey" ,29.99 , "IMG/05.jpg" ,"The rise and fall of Ireland bottled for your convenience." ,1)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Bombay Gin', 39.99,'IMG/01.jpg', 'Every COSCS student favorite sleep aid', 1);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Titos Vodka', 39.99,'IMG/02.jpg', 'Finally, a vodka that doesnt taste like hand sanitizer', 1);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Appletons Rum', 29.99 ,'IMG/03.jpg', 'When you need a mental break before your scheduled mental breakdown', 1);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cabo Wabo Tequila', 79.99 ,'IMG/04.jpg', 'Tequilla solves the question of how to feel like youve been punched in the mouth without insulting your step dad.', 1);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Jamesons Whiskey', 29.99 , 'IMG/05.jpg', 'The rise and fall of Ireland bottled for your convenience.', 1);
 --condiments
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 6, "Ketchup", 9.99,"IMG/06.jpg" ,"According to Reagan, this a vegetable!" ,2)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 7, "Mustard", 9.99,"IMG/07.jpg","Also available in Dijon if you wan that added taste of moral superiority." , ,2)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 8, "Relish", 9.99,"IMG/08.jpg" ,"There could have a been a 'relish the moment' pun here, but we didn't want to hear people brine-ing about it." ,2)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 9, "Sriracha", 5.99,"IMG/09.jpg","Also doubles as eye drops in a pinch" ,2)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 10,"Soy Sauce" , 5.99, "IMG/10.jpg","Still not a salty as an '05 COD lobby" ,2)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Ketchup', 9.99,'IMG/06.jpg' ,'According to Reagan, this a vegetable!' ,2);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Mustard', 9.99,'IMG/07.jpg','Also available in Dijon if you wan that added taste of moral superiority.' ,2);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Relish', 9.99,'IMG/08.jpg' ,'There could have a been a relish the moment pun here, but we didnt want to hear people brine-ing about it.' ,2);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Sriracha', 5.99,'IMG/09.jpg','Also doubles as eye drops in a pinch' ,2);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Soy Sauce' , 5.99, 'IMG/10.jpg','Still not a salty as an 05 COD lobby' ,2);
 --dairy products
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 11,"Yogurt",2.99 ,"IMG/11.jpg","Why does yogurt have an expiry date? Its whole premise is being expired Milk" ,3)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 12,"Milk" , 3.99,"IMG/12.jpg","Age this to juxtapose fine wine." ,3)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 13,"Cheese" ,5.99 , "IMG/13.jpg","Test your lactose intolerant friends integrity by offering them this." ,3)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 14,"Oat Milk" ,5.99 ,"IMG/14.jpg" ,"Tired of being a 'soy-boy'? Try this!" ,3)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 15,"Other Cheese",99.99 ,"IMG/15.jpg" ,"This mystery cheese probably isn't laced with codeine." ,3)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Yogurt',2.99 ,'IMG/11.jpg','Why does yogurt have an expiry date? Its whole premise is being expired Milk' ,3);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Milk' , 3.99,'IMG/12.jpg','Age this to juxtapose fine wine.' ,3);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cheese' ,5.99 , 'IMG/13.jpg','Test your lactose intolerant friends integrity by offering them this.' ,3);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Oat Milk' ,5.99 ,'IMG/14.jpg' ,'Tired of being a soy-boy? Try this!' ,3);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Other Cheese',99.99 ,'IMG/15.jpg' ,'This mystery cheese probably isnt laced with codeine.' ,3);
 --produce
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 16,"Cherry Tomato" , 5.99, "IMG/16.jpg","Give to someone with body dysmorphia and tell them its a regular tomato." ,4)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 17,"Lettuce" , 2.99,"IMG/17.jpg" , "Hands down the most boring edible leaf." ,4)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 18,"Banana" , 0.99,"IMG/18.jpg" ,"The phallic shape of this fruit is why it tastes so good." ,4)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 19,"Apple" , 0.99,"IMG/19.jpg" , "Doctors just abhor these.",4)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 20,"Onion", 5.99,"IMG/20.jpg" ,"Bear incredible similarity to ogres." ,4)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cherry Tomato' , 5.99, 'IMG/16.jpg','Give to someone with body dysmorphia and tell them its a regular tomato.' ,4);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Lettuce' , 2.99,'IMG/17.jpg' , 'Hands down the most boring edible leaf.' ,4);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Banana' , 0.99,'IMG/18.jpg' ,'The phallic shape of this fruit is why it tastes so good.' ,4);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Apple' , 0.99,'IMG/19.jpg' , 'Doctors just abhor these.',4);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Onion', 5.99,'IMG/20.jpg' ,'Bear incredible similarity to ogres.' ,4);
 --meat/poultry
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 21, "Egg", 12.99,"IMG/21.jpg","Avoid thinking about origin of this item." ,5)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 22, "Sausages", 7.99, "IMG/22.jpg","These employ the banana tactic to enhance flavor" ,5)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 23, "Ground Beef", 9.99, "IMG/23.jpg","Contrary to popular belief, domestic ground tastes nothing like store bought and science doesn’t know why." ,5)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 24, "Salmon Patty", 15.99,"IMG/24.jpg","Comnpletely usable as a frisbee in a pinch" ,5)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 25, "Chicken Breats",12.99,"IMG/25.jpg" ,"We sourced the busty-est chickens, just for you!" ,5)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Egg', 12.99,'IMG/21.jpg','Avoid thinking about origin of this item.' ,5);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Sausages', 7.99, 'IMG/22.jpg','These employ the banana tactic to enhance flavor' ,5);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Ground Beef', 9.99, 'IMG/23.jpg','Contrary to popular belief, domestic ground tastes nothing like store bought and science doesnt know why.' ,5);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Salmon Patty', 15.99,'IMG/24.jpg','Comnpletely usable as a frisbee in a pinch' ,5);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Chicken Breats',12.99,'IMG/25.jpg' ,'We sourced the busty-est chickens, just for you!' ,5);
 --seafood
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 26, "Prawns", 6.99,"IMG/26.jpg" ,"Not known for their posture!" ,6)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 27, "Tuna", 2.99,"IMG/27.jpg" ,"As a constant source of inspiration, they'll remind you that they've never been called a Tuna Can't",6)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 28, "Canned Salmon", 3.99,"IMG/28.jpg" ,"Salmon that has been imprisoned for failing to abide by the Geneva convention" ,6)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 29, "Sardines", 5.99,"IMG/29.jpg" ,"Americas favorite stocking stuffer" ,6)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 30, "Kippered Herring", 5.99,"IMG/30.jpg" ,"Now with an even more sussy smell!" ,6)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Prawns', 6.99,'IMG/26.jpg' ,'Not known for their posture!' ,6);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Tuna', 2.99,'IMG/27.jpg' ,'As a constant source of inspiration, theyll remind you that theyve never been called a Tuna Cant',6);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Canned Salmon', 3.99,'IMG/28.jpg' ,'Salmon that has been imprisoned for failing to abide by the Geneva convention' ,6);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Sardines', 5.99,'IMG/29.jpg' ,'Americas favorite stocking stuffer' ,6);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Kippered Herring', 5.99,'IMG/30.jpg' ,'Now with an even more sussy smell!' ,6);
 --confections
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 31,"Caramilk" , 2.99,"IMG/31.jpg" ,"They've built a brand on a mystery of how the caramel got in there. Enzymes. That’s how. " ,7)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 32, "Snickers Double Pack", 2.99,"IMG/32.jpg" ,"Feel free to pretend you have a friend to share this with." ,7)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 33, "Mint Chocolate", 5.99,"IMG/33.jpg" ,"If you like these, try toothpaste!" ,7)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 34, "Candied Peanuts", 8.99,"IMG/34.jpg" ,"This was almost healthy and then they where like 'nah'" ,7)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 35, "Popcorn", 89.99, "IMG/35.jpg","Price adjusted to Movie Theater standards" ,7)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Caramilk' , 2.99,'IMG/31.jpg' ,'Theyve built a brand on a mystery of how the caramel got in there. Enzymes. Thats how. ' ,7);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Snickers Double Pack', 2.99,'IMG/32.jpg' ,'Feel free to pretend you have a friend to share this with.' ,7);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Mint Chocolate', 5.99,'IMG/33.jpg' ,'If you like these, try toothpaste!' ,7);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Candied Peanuts', 8.99,'IMG/34.jpg' ,'This was almost healthy and then they where like nah' ,7);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Popcorn', 89.99, 'IMG/35.jpg','Price adjusted to Movie Theater standards' ,7);
 --grains/cereals
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 36,"Oats" , 8.99,"IMG/36.jpg" ,"Ever wondered what the colour gray tastes like? These, it tastes like these" ,8)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 37,"Cereal" ,5.99 ,"IMG/37.jpg" ,"Firms up stool without ruining the taste!" ,8)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 38, "Rice Cakes", 2.99,"IMG/38.jpg" ,"Tastes nothing like cake!" ,8)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 39, "Wheat Thins",5.99 ,"IMG/39.jpg" ,"Classy!" ,8)
-INSERT INTO product(productId, productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 40, "Energy Bar",6.99,"IMG/40.jpg" ,  "Instantly make yourself look more adventurous!",8)
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Oats' , 8.99,'IMG/36.jpg' ,'Ever wondered what the colour gray tastes like? These, it tastes like these' ,8);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cereal' ,5.99 ,'IMG/37.jpg' ,'Firms up stool without ruining the taste!' ,8);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Rice Cakes', 2.99,'IMG/38.jpg' ,'Tastes nothing like cake!' ,8);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Wheat Thins',5.99 ,'IMG/39.jpg' ,'Classy!' ,8);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Energy Bar',6.99,'IMG/40.jpg' ,  'Instantly make yourself look more adventurous!',8);
 
-INSERT INTO warehouse(warehouseName) VALUES ('Main warehouse');
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (1, 1, 5, 18);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (2, 1, 10, 19);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (3, 1, 3, 10);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (4, 1, 2, 22);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (5, 1, 6, 21.35);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (6, 1, 3, 25);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (7, 1, 1, 30);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (8, 1, 0, 40);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (9, 1, 2, 97);
-INSERT INTO productinventory(productId, warehouseId, quantity, price) VALUES (10, 1, 3, 31);
+
 
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Arnold', 'Anderson', 'a.anderson@gmail.com', '204-111-2222', '103 AnyWhere Street', 'Winnipeg', 'MB', 'R3X 45T', 'Canada', 'arnold' , 'test');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Bobby', 'Brown', 'bobby.brown@hotmail.ca', '572-342-8911', '222 Bush Avenue', 'Boston', 'MA', '22222', 'United States', 'bobby' , 'bobby');

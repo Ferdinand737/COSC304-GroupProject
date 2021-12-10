@@ -18,7 +18,7 @@ out.print("<h1>Connecting to database.</h1><br><br>");
 
 Connection con = DriverManager.getConnection(url, uid, pw);
         
-String fileName = "/usr/local/tomcat/webapps/shop/orderdb_sql.ddl";
+String fileName = "/usr/local/tomcat/webapps/shop/Product_sql.ddl";
 /*
 Write a Java or Python program that prints out in decreasing order the 5 
 largest loans at each bank. You must show a bank even if it has no loans. 
@@ -50,21 +50,6 @@ try
     scanner.close();
     
     out.print("<br><br><h1>Database loaded.</h1>");
-    String sql =  "SELECT O.bankName, L.amount FROM Bank AS O LEFT JOIN Loan AS L ON O.bankName=L.bankName";
-    PreparedStatement pstmt = con.prepareStatement(sql);
-    ResultSet bankRst = pstmt.executeQuery();
-    while(bankRst.next()) {
-        String bName = bankRst.getString("bankName");
-        out.println("<th>Bank: " + bName + " Loans: " +"" + "Total: " + "</th>");
-        
-        out.println("<th>Top 5 Loans:</th>");
-        int count = 0;
-        while(bankRst.next() && bName == bankRst.getString("bankName")) {
-            out.print(bankRst.getDouble("<th>amount") + " </th>");
-        }
-    }
-
-    out.print("hello");
 }
 catch (Exception e)
 {
