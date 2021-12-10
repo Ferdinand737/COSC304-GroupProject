@@ -5,11 +5,14 @@
 
 <html>
 <head>
-<title>Your Shopping Cart</title>
+<title>Load Data</title>
 </head>
 <body>
-
+<h1><a href="index.jsp">MAF Grocery</a></h1>
 <%
+if(session.getAttribute("authenticatedUser").equals("Admin")){
+    out.print("<h2><a href=\"admin.jsp\">Admin Portal</a></h2>");  
+}  
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";

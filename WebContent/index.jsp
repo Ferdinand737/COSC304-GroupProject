@@ -17,7 +17,10 @@ if(session.getAttribute("authenticatedUser") != null){
         out.print("<h2 align=\"center\"><a href=\"customer.jsp\">Your Info</a></h2>");      
 }
 if(session.getAttribute("authenticatedUser") != null){
-        out.print("<h2 align=\"center\"><a href=\"logout.jsp\">Log out</a></h2>");      
+        out.print("<h2 align=\"center\"><a href=\"logout.jsp\">Log out</a></h2>");  
+        if(session.getAttribute("authenticatedUser").equals("Admin")){
+                out.print("<h2 align=\"center\"><a href=\"admin.jsp\">Admin Portal</a></h2>");  
+        }    
 }else{
         out.print("<h2 align=\"center\"><a href=\"login.jsp\">Login</a></h2>");
         out.print("<h2 align=\"center\"><a href=\"signUp.jsp\">Sign Up</a></h2>");
