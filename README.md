@@ -1,4 +1,4 @@
 # COSC304_GroupProject
 Is a group project for COSC304
 
-All of the files we need to work on are in the WebContent Directory. To track our work, We have a marking PDF that can be refered to.
+https://docs.google.com/document/d/1K0rE51_lI08jcylMDM8pHRV3kLFB2zMW9ikEov778Is/edit?usp=sharing
