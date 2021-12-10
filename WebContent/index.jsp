@@ -9,7 +9,6 @@
 <body>
 <h1 align="center">Welcome to MAF Grocery</h1>
 
-<
 
 <h2 align="center"><a href="listprod.jsp">Begin Shopping</a></h2>
 
@@ -84,11 +83,11 @@ while(rst.next())
         String linkAdd = "addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2) + "&price=" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3));
         String linkProd = "product.jsp?id=" + rst.getInt(1);
         String linkCategory = "listprod.jsp?category=" + rst.getString(4);
-        out.println("<td class=\"col-md-1\"><a href=\"" + linkAdd + "\">Add to Cart</a></td>");
-        out.println("<td><a href=\"" + linkProd + "\">" +rst.getString(2) + "</td><td><img src=\""+rst.getString(6)+"\"></td>");
-        out.println("<td><a href=\"" + linkCategory + "\">"+rst.getString(4)+"</td>");
-        out.println("<td>"+rst.getDouble(5)+"</td>");
-        out.println("<td>" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3)) + "</td>");
+        out.println("<td class=\"col-md-1\"><a href=\"" + linkAdd + "\"><h2>Add to Cart</h2></a></td>");
+        out.println("<td><a href=\"" + linkProd + "\"><h2>" +rst.getString(2) + "</h2></td><td><img src=" +  "\"" + rst.getString(6) + "\" width=\"200\" height=\"400\"></td>");
+        out.println("<td><a href=\"" + linkCategory + "\"><h2>"+rst.getString(4)+"</h2></td>");
+        out.println("<td><h2>"+rst.getDouble(5)+"</h2></td>");
+        out.println("<td><h2>" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3)) + "</h2></td>");
         out.println("</tr>");  
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,12 +120,12 @@ while(rst.next()){
                 String linkAdd = "addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2) + "&price=" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3));
                 String linkProd = "product.jsp?id=" + rst.getInt(1);
                 String linkCategory = "listprod.jsp?category=" + rst.getString(4);
-                out.println("<td class=\"col-md-1\"><a href=\"" + linkAdd + "\">Add to Cart</a></td>");
-                out.println("<td><a href=\"" + linkProd + "\">" +rst.getString(2) + "</td><td><img src=\""+rst.getString(6)+"\"></td>");
-                out.println("<td><a href=\"" + linkCategory + "\">"+rst.getString(4)+"</td>");
-                out.println("<td>"+rst.getDouble(5)+"</td>");
-                out.println("<td>" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3)) + "</td>");
-                out.println("</tr>");
+                out.println("<td class=\"col-md-1\"><a href=\"" + linkAdd + "\"><h2>Add to Cart</h2></a></td>");
+                out.println("<td><a href=\"" + linkProd + "\"><h2>" +rst.getString(2) + "</h2></td><td><img src=" +  "\"" + rst.getString(6) + "\" width=\"200\" height=\"400\"></td>");
+                out.println("<td><a href=\"" + linkCategory + "\"><h2>"+rst.getString(4)+"</h2></td>");
+                out.println("<td><h2>"+rst.getDouble(5)+"</h2></td>");
+                out.println("<td><h2>" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3)) + "</h2></td>");
+                out.println("</tr>");  
         }
 
 }
