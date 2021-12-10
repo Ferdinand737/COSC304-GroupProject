@@ -31,7 +31,7 @@ rst.next();
 int pId = rst.getInt(1);
 out.println("<h2>"+rst.getString(2)+"</h2>");
 // TODO: If there is a productImageURL, display using IMG tag
-out.println("<img src=\""+rst.getString(4)+"\">");
+out.println("<img src=\""+rst.getString(4)+"\" width=\"200\" height=\"400\">");
 //out.println("<img src=\"displayImage.jsp?id="+rst.getInt(1)+"\">");
 
 // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
