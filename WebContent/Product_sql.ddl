@@ -174,7 +174,7 @@ INSERT INTO product(productName, productPrice, productImageURL, productDesc, cat
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Egg', 12.99,'IMG/21.jpg','Avoid thinking about origin of this item.' ,5);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Sausages', 7.99, 'IMG/22.jpg','These employ the banana tactic to enhance flavor' ,5);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Ground Beef', 9.99, 'IMG/23.jpg','Contrary to popular belief, domestic ground tastes nothing like store bought and science doesnt know why.' ,5);
-INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Salmon Patty', 15.99,'IMG/24.jpg','Comnpletely usable as a frisbee in a pinch' ,5);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Salmon Patty', 15.99,'IMG/24.jpg','Completely usable as a frisbee in a pinch' ,5);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Chicken Breats',12.99,'IMG/25.jpg' ,'We sourced the busty-est chickens, just for you!' ,5);
 --seafood
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Prawns', 6.99,'IMG/26.jpg' ,'Not known for their posture!' ,6);
@@ -194,6 +194,60 @@ INSERT INTO product(productName, productPrice, productImageURL, productDesc, cat
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Rice Cakes', 2.99,'IMG/38.jpg' ,'Tastes nothing like cake!' ,8);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Wheat Thins',5.99 ,'IMG/39.jpg' ,'Classy!' ,8);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Energy Bar',6.99,'IMG/40.jpg' ,  'Instantly make yourself look more adventurous!',8);
+
+
+--Info for warehouses
+INSERT INTO warehouse(warehouseName) VALUES ('Boozy House')
+INSERT INTO warehouse(warehouseName) VALUES ('Saucy House')
+INSERT INTO warehouse(warehouseName) VALUES ('Milky House')
+INSERT INTO warehouse(warehouseName) VALUES ('Sprouty House')
+INSERT INTO warehouse(warehouseName) VALUES ('Meaty House')
+INSERT INTO warehouse(warehouseName) VALUES ('Smelly House')
+INSERT INTO warehouse(warehouseName) VALUES ('Sweety House')
+INSERT INTO warehouse(warehouseName) VALUES ('Grainy House')
+
+--prodInventory
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (1 , 1, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (2 , 1, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (3 , 1, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (4 , 1, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (5 , 1, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (6 , 2, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (7 , 2, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (8 , 2, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (9 , 2, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (10 , 2, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (11 , 3, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (12 , 3, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (13 , 3, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (14 , 3, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (15 , 3, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (16 , 4, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (17 , 4, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (18 , 4, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (19 , 4, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (20 , 4, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (21 , 5, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (22 , 5, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (23 , 5, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (24 , 5, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (25 , 5, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (26 , 6, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (27 , 6, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (28 , 6, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (29 , 6, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (30 , 6, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (31 , 7, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (32 , 7, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (33 , 7, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (34 , 7, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (35 , 7, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (36 , 8, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (37 , 8, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (38 , 8, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (39 , 8, 50 )
+INSERT INTO productinventory(productId, warehouseId, quantity) VALUES (40 , 8, 50 )
+
 
 
 

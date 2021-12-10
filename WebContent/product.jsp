@@ -36,6 +36,8 @@ out.println("<img src=\""+rst.getString(4)+"\" width=\"200\" height=\"400\">");
 out.println("\n"+"<EM>"+rst.getString(5)+"</EM>");
 //out.println("<img src=\"displayImage.jsp?id="+rst.getInt(1)+"\">");
 
+
+
 // TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
 out.println("<table><tbody>");
 out.println("<tr><th>Id</th><th>"+rst.getInt(1)+"</th></tr>");
@@ -91,6 +93,22 @@ out.println("<tr><th>Rating</th><th>Comment</th><th>Date Posted</th></tr>");
 while (rst.next()) {
     out.println("<tr><th>"+rst.getInt(1)+"</th><th>"+rst.getString(2)+"</th><th>"+rst.getDate(3)+"</th></tr>");
 }
+try{
+    //Selecting warehouse info
+    String sql_warehouse = "SELECT warehouse.warehouseName, productinventory.quantity FROM productinventory JOIN warehouse ON warehouse.warehouseId = productinventory.warehouseId WHERE productId=? ";
+    PreparedStatement stmt_warehouse = con.prepareStatement(sql_warehouse);
+    stmt_warehouse.setInt(1, Integer.parseInt(id));
+    ResultSet rst_warehouse = stmt_warehouse.executeQuery();
+    rst_warehouse.next();
+    //int pId_warehouse = rst_warehouse.getInt(1);
+    out.println("<h2>"+ "Ships From: " +rst_warehouse.getString(1)+"</h2>");
+    out.println("<h2>"+ "Amount left: " +rst_warehouse.getInt(2)+"</h2>");
+    } catch (Exception e) {
+        out.println(e);
+        out.println("Warehouse information unavailible");
+    }
+
+
 out.println("</table></tbody>");
 %>
 </form>
