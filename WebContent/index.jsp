@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to MAF Grocery</h1>
+<%@ include file="header.jsp" %>
 
 
 <h2 align="center"><a href="listprod.jsp">Begin Shopping</a></h2>
