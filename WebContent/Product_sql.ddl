@@ -165,7 +165,7 @@ INSERT INTO product(productName, productPrice, productImageURL, productDesc, cat
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Oat Milk' ,5.99 ,'IMG/14.jpg' ,'Tired of being a soy-boy? Try this!' ,3);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Other Cheese',99.99 ,'IMG/15.jpg' ,'This mystery cheese probably isnt laced with codeine.' ,3);
 --produce
-INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cherry Tomato' , 5.99, 'IMG/16.jpg','Give to someone with body dysmorphia and tell them its a regular tomato.' ,4);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cherry Tomato' , 5.99, 'IMG/16.jpg','Like a regular tomato but smol.' ,4);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Lettuce' , 2.99,'IMG/17.jpg' , 'Hands down the most boring edible leaf.' ,4);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Banana' , 0.99,'IMG/18.jpg' ,'The phallic shape of this fruit is why it tastes so good.' ,4);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Apple' , 0.99,'IMG/19.jpg' , 'Doctors just abhor these.',4);
@@ -190,7 +190,7 @@ INSERT INTO product(productName, productPrice, productImageURL, productDesc, cat
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Popcorn', 89.99, 'IMG/35.jpg','Price adjusted to Movie Theater standards' ,7);
 --grains/cereals
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Oats' , 8.99,'IMG/36.jpg' ,'Ever wondered what the colour gray tastes like? These, it tastes like these' ,8);
-INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cereal' ,5.99 ,'IMG/37.jpg' ,'Firms up stool without ruining the taste!' ,8);
+INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Cereal' ,5.99 ,'IMG/37.jpg' ,'Crunchy for a limited time!' ,8);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Rice Cakes', 2.99,'IMG/38.jpg' ,'Tastes nothing like cake!' ,8);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Wheat Thins',5.99 ,'IMG/39.jpg' ,'Classy!' ,8);
 INSERT INTO product(productName, productPrice, productImageURL, productDesc, categoryId) VALUES( 'Energy Bar',6.99,'IMG/40.jpg' ,  'Instantly make yourself look more adventurous!',8);
