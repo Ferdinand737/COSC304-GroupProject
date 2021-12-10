@@ -4,22 +4,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <title>YOUR NAME Grocery Main Page</title>
+        <title>MAF Grocery</title>
 </head>
 <body>
 <h1 align="center">Welcome to MAF Grocery</h1>
 
-<h2 align="center"><a href="login.jsp">Login</a></h2>
+<
 
 <h2 align="center"><a href="listprod.jsp">Begin Shopping</a></h2>
 
-<h2 align="center"><a href="listorder.jsp">List All Orders</a></h2>
+<%
+if(session.getAttribute("authenticatedUser") != null){
+        out.print("<h2 align=\"center\"><a href=\"customer.jsp\">Your Info</a></h2>");      
+}
+if(session.getAttribute("authenticatedUser") != null){
+        out.print("<h2 align=\"center\"><a href=\"logout.jsp\">Log out</a></h2>");      
+}else{
+        out.print("<h2 align=\"center\"><a href=\"login.jsp\">Login</a></h2>");
+        out.print("<h2 align=\"center\"><a href=\"signUp.jsp\">Sign Up</a></h2>");
+}
+%>
 
-<h2 align="center"><a href="customer.jsp">Customer Info</a></h2>
-
-<h2 align="center"><a href="admin.jsp">Administrators</a></h2>
-
-<h2 align="center"><a href="logout.jsp">Log out</a></h2>
 <style>
 table {
   border-collapse: collapse;

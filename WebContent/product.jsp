@@ -15,10 +15,7 @@
 <%@ include file="header.jsp" %>
 
 <%
-String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
-String uid = "SA";
-String pw = "YourStrong@Passw0rd";
-Connection con = DriverManager.getConnection(url, uid, pw);
+getConnection();
 // Print out the ResultSet
 //Statement stmt = con.createStatement();
 // Get product name to search for

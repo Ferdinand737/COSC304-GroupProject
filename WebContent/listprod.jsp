@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>YOUR NAME Grocery</title>
+<title>MAF Grocery</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>

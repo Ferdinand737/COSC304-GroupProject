@@ -5,9 +5,10 @@
 </head>
 <body>
 
-<%
-// TODO: Include files auth.jsp and jdbc.jsp
-%>
+
+<%@ include file="jdbc.jsp" %>
+<%@ include file="auth.jsp" %>
+
 <%
 
 // TODO: Write SQL query that prints out total order amount by day

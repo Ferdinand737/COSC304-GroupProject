@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.io.*,java.sql.*"%>
 <%@ include file="jdbc.jsp" %>
+
 <%
 	String authenticatedUser = null;
 	session = request.getSession(true);
@@ -27,6 +28,7 @@
 <%!
 	String validateLogin(JspWriter out,HttpServletRequest request, HttpSession session) throws IOException
 	{
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String retStr = null;
@@ -57,8 +59,9 @@
 		}
 		finally
 		{
-			//closeConnection(); I don't know why this does not work.
-		}	
+			closeConnection();
+		}
+			
 		
 		if(retStr != null)
 		{	session.removeAttribute("loginMessage");

@@ -1,13 +1,3 @@
-<!--
-A JSP file that encapsulates all database access.
-
-Public methods:
-- public void getConnection() throws SQLException
-- public ResultSet executeQuery(String query) throws SQLException
-- public void executeUpdate(String query) throws SQLException
-- public void closeConnection() throws SQLException  
-
--->
 
 <%@ page import="java.sql.*"%>
 
@@ -36,10 +26,15 @@ Public methods:
 		con = DriverManager.getConnection(url, uid, pw);
 	}
    
-	public void closeConnection() throws SQLException 
+	public void closeConnection() 
 	{
-		if (con != null)
-			con.close();
-		con = null;
+		try {
+			if (con != null){
+				con.close();
+			}
+			con = null;
+		}catch (SQLException ignore){
+			 /* Ignore connection close error */ 
+			}
 	}
 %>
