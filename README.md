@@ -56,5 +56,5 @@ Wouldn’t it be nice to turn back time and avoid the dreadful consequences of o
  	Product reviews got you down? Hide the negativity by deleting or updating the product information!
 
 •	Admin Function: Database Restore
-Made an oopsie? Need to hide before your quarterly report? Take the nuclear option! Give your data base a hard reset with one easy to push button!
+Made an oopsie? Need to hide it before your quarterly report? Take the nuclear option! Give your data base a hard reset with one easy to push button!
 
