@@ -45,11 +45,15 @@ out.println("<tr><th>Price</th><th>"+NumberFormat.getCurrencyInstance(Locale.CAN
 out.println("</table></tbody>");
 
 // TODO: Add links to Add to Cart and Continue Shopping
-
+String user = (String)session.getAttribute("authenticatedUser");
 String linkAdd = "addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2) + "&price=" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3));
 out.println("<h3><a href=\"listprod.jsp\">Continue Shopping</a></h3>");
 out.println("<h3><a href=\"" + linkAdd + "\">Add to Cart</a></h3>");
-int cId = 1;
+String strsql = "SELECT customerId FROM customer WHERE userid=\'"+user+"\';";
+stmt = con.prepareStatement(strsql);
+rst = stmt.executeQuery();
+rst.next();
+int cId = rst.getInt(1);
 out.println("<h4>Reviews</h4>");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Checks to see if review has been placed by User, 
@@ -65,10 +69,11 @@ if(rst.getInt(1) < 1)
     out.println("<h8>Leave a Written Review</h8>");
     out.println("<input type=\"text\" name=\"Review\" size=\"100\">");
     out.println("<input type=\"submit\" value=\"Submit\">");
+    out.print("<input type=\"hidden\" name=\"id\" size=\"0\" value=\""+pId+"\"></form>");
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-out.print("<input type=\"hidden\" name=\"id\" size=\"0\" value=\""+pId+"\">");
+
 String rating = request.getParameter("Rating");
 String review = request.getParameter("Review");
 if(review != null)
