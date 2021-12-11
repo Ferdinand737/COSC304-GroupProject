@@ -7,6 +7,7 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,15 @@
 
 <% 
 // Get customer id
-String custId = request.getParameter("customerId");
+String userid = (String) session.getAttribute("authenticatedUser");
+getConnection();
+String sql = "SELECT customerId FROM customer WHERE userid=?";
+PreparedStatement stmt = con.prepareStatement(sql);
+stmt.setString(1, userid);
+ResultSet rst = stmt.executeQuery();
+rst.next();
+int custId = rst.getInt(1);
+
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 // Make connection
@@ -26,7 +35,7 @@ String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 Connection con = DriverManager.getConnection(url, uid, pw);
 // Determine if valid customer id was entered
-int testId = Integer.parseInt(custId);
+int testId = custId;
 String custIdCheck = "SELECT customerId FROM customer WHERE customerId=?";
 PreparedStatement testCust = con.prepareStatement(custIdCheck);
 testCust.setInt(1, testId);
@@ -49,7 +58,7 @@ out.println("<h1>Your Order Summary</h1>");
 Date cDate = new Date();
 java.sql.Date sqlDate = new java.sql.Date(cDate.getTime()); 
 double totalAmm = 0.0;
-String sql = "INSERT INTO ordersummary (customerId,orderDate,totalAmount) VALUES (?,?,?)";
+sql = "INSERT INTO ordersummary (customerId,orderDate,totalAmount) VALUES (?,?,?)";
 // Use retrieval of auto-generated keys.
 PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 pstmt.setInt(1, testId);
@@ -114,8 +123,36 @@ out.println("<h1>Shipping to Customer: " + custId + "</h1>");
 out.println("<h1>Name: " + Name.getString("firstName") + " " + Name.getString("lastName") + "</h1>");
 out.println("<h2><a href=\"listprod.jsp\">Return To Shopping</a></h2>");
 out.println("<h2><a href=\"index.jsp\">Return To The Home Page</a></h2>");
-// Clear cart if order placed successfully
 
+
+//update inventory
+iterator = productList.entrySet().iterator();
+while(iterator.hasNext()){
+
+	Map.Entry<String, ArrayList<Object>> entry = iterator.next();
+	ArrayList<Object> product = (ArrayList<Object>) entry.getValue();
+	int productId = Integer.parseInt((String) product.get(0));
+	int qty = ( (Integer)product.get(3)).intValue();
+	
+	//get current inventory
+	sql = "SELECT quantity FROM productinventory WHERE productId=?";
+	stmt = con.prepareStatement(sql);
+	stmt.setInt(1, productId);
+	rst = stmt.executeQuery();
+	rst.next();
+	int inventory = rst.getInt(1);
+
+	//update current - qty
+	sql = "UPDATE productinventory SET quantity=? WHERE productId=?";
+	stmt = con.prepareStatement(sql);
+	stmt.setInt(1, inventory-qty);
+	stmt.setInt(2, productId);
+	stmt.executeUpdate();
+	
+}
+
+
+// Clear cart if order placed successfully
 productList.clear();
 
 }
