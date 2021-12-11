@@ -72,7 +72,7 @@
     </tr>
     <tr>
         <td><div align="right"><font face="Arial, Helvetica, sans-serif" size="2">Category ID:</font></div></td>
-        <td><input type="number" name="categoryId"  size=30 maxlength="100"></td>
+        <td><input type="text" name="categoryId"  size=30 maxlength="100"></td>
     </tr>
 </table>
 <br/>
