@@ -21,11 +21,16 @@ Wouldn’t it be nice to turn back time and avoid the dreadful consequences of o
 
 •	Improved UI (user-friendly, images, etc.):
 	Our users are at least the third most important thing to us! So, our engineers have sculpted the most divine UI they’ve ever made!
+
 •	Product recommendation based on user:
  	We understand that users crave comfort, familiarity and a feeling of safety with their purchases, so we’ve implemented a system to recommend products as a reminder that they are as predictable as they feared.
 
 •	Product detail page and item description:
  	Users often forget what the function of a given product is due to a lack of object permanence! While we can’t develop their post-natal skills, we can describe any object on our store!
+
+•	User account header:
+    A safe reminder to our users who they are, just incase we reach them in a state of existential doubt.
+
 •	Create user account page:
  	The average shopping experience lacks that charade of individualism that glues our fragile psyche together, so our developers have implemented a user account system to make our customers experience more “them”, to the extent that we find profitable!
 
