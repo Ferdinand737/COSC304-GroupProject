@@ -82,7 +82,7 @@ while (iterator.hasNext())
 	String productId = (String) product.get(0);
     String price = (String) product.get(2);
 	double pr = Double.parseDouble(price.substring(1));
-	int qty = Integer.parseInt((String)product.get(3));
+	int qty = ( (Integer)product.get(3)).intValue();
 	PreparedStatement insertProd = con.prepareStatement(insertProdSQl);
 	insertProd.setInt(1, orderId);
 	insertProd.setInt(2, Integer.parseInt(productId));
@@ -132,7 +132,7 @@ while(iterator.hasNext()){
 	Map.Entry<String, ArrayList<Object>> entry = iterator.next();
 	ArrayList<Object> product = (ArrayList<Object>) entry.getValue();
 	int productId = Integer.parseInt((String) product.get(0));
-	int qty = Integer.parseInt((String)product.get(3));
+	int qty = ( (Integer)product.get(3)).intValue();
 	
 	//get current inventory
 	sql = "SELECT quantity FROM productinventory WHERE productId=?";
