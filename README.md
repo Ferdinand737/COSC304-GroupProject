@@ -5,7 +5,7 @@
 
 # [CHECKLIST](https://docs.google.com/document/d/1K0rE51_lI08jcylMDM8pHRV3kLFB2zMW9ikEov778Is/edit?usp=sharing)
 SYSTEM FEATURE SUMMARY PAGE
-Explanatory text:
+Explanatory textdsssssss:
 Welcome to the MAF feature sheet! If you have not signed our NDA, please cease to read. Once you’ve signed off on our favorite document, please feel free to observe the feature of your new purchase!
 
 Feature list:
