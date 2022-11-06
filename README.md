@@ -7,7 +7,7 @@
 
 2. Download and install Docker ([here](https://www.docker.com/products/docker-desktop)). This is necessary for running the web application and a Microsoft SQL server instance.
 
-3. Clone the git repository and open in with VSCode
+3. Clone the git repository and open in VSCode
 
 4. Type the following command in your terminal and press enter:
 
