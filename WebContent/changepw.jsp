@@ -14,8 +14,7 @@ response.sendRedirect("login.jsp");
 <%!
 void signUp(JspWriter out,HttpServletRequest request, HttpSession session) throws IOException
 {
-    
-    
+
     String password = request.getParameter("password");
 
     String user = (String) session.getAttribute("authenticatedUser");

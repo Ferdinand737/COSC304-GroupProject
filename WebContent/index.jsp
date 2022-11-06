@@ -46,17 +46,12 @@ String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
 Connection con = DriverManager.getConnection(url, uid, pw);
-// TODO: Display user name that is logged in (or nothing if not logged in)
-
-
 
 out.print("<form align=\"center\" method=\"get\" action=\"listprod.jsp\"><td>");
 out.print("<input type=\"text\" name=\"productName\" size=\"50\"><input type=\"hidden\" name=\"sort\" value=\"p.productId\">");
 out.print("<input type=\"submit\" value=\"Submit\"></td></form></tr>");
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Needs to be implemented with account
-//For Now assumed ID will be 1 ""
+
 PreparedStatement stmt;
 ResultSet rst;
 if(user != null) {
@@ -72,10 +67,7 @@ if(user != null) {
                 +"RIGHT JOIN ordersummary AS s ON o.orderId=s.orderId LEFT JOIN review AS r ON p.productId=r.productId "
                 +"WHERE s.customerId=" + id + " "
                 +"GROUP BY p.productId, productName, productPrice, categoryName, productImageURL ORDER BY AVG(reviewRating) DESC;";
-        //This querry works by taking all of the products they have already ordered, and returns it back to them.
-        //In the context of a Grocer thats fine, but if we change product types, then may be problematic
-        //That is why sortof done
-
+     
         stmt = con.prepareStatement(sql);
         rst = stmt.executeQuery();
 
@@ -103,9 +95,6 @@ if(user != null) {
                 out.println("</tr>");  
         }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 out.println("</tbody></table>");
 out.print("<h3 align=\"center\">Top Rated</h3>");

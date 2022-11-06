@@ -2,6 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,11 @@
 <form method="get" action="listprod.jsp">
 	<label for="sort">Sort By:</label>
   	<select id="sort" name="sort">
-    	<option value="productPrice">price</option>
-    	<option value="AVG(reviewRating)">rating</option>
-    	<!--<option value="quantity sold ASC">quantity sold</option> -->
-		<option value="productPrice DESC">price Descending</option>
-    	<option value="AVG(reviewRating) DESC">rating Descending</option>
-    	<!--<option value="quantity sold DESC">quanitiy sold Descending</option> -->
+	  	<option value="productName">Alphabetical</option>
+		<option value="productPrice DESC">Price Descending</option>
+		<option value="productPrice">Price Ascending</option>
+    	<option value="AVG(reviewRating) DESC">Rating Descending</option>
+    	<option value="quantity sold DESC">Quanitiy sold Descending</option> 
   	</select>
 	<input type="text" name="productName" size="50">
 	<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
@@ -36,23 +36,11 @@ th, td {
   padding: 16px;
 }
 </style>
-<% // Get product name to search for
+<% 
 String name = request.getParameter("productName");
 String category = request.getParameter("category");
 String sort = request.getParameter("sort");
 
-//Note: Forces loading of SQL Server driver
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-}
-catch (java.lang.ClassNotFoundException e)
-{
-	out.println("ClassNotFoundException: " +e);
-}
-
-// Variable name now contains the search string the user entered
-// Use it to build a query and print out the resultset.  Make sure to use PreparedStatement!
 out.println("<h2>All Products</h2>");
 out.println("<table class=\"table\" border=\"1\">");
 out.println("<tbody>");
@@ -64,13 +52,14 @@ out.println("<th>Rating</th>");
 out.println("<th>Price</th>");
 out.println("</tr>");
 
-// Make the connection
+
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
-Connection con = DriverManager.getConnection(url, uid, pw);
-// Print out the ResultSet
+getConnection();
 PreparedStatement stmt;
+
+
 if(name == null){
 	if(sort == null)
 	{
@@ -82,8 +71,7 @@ if(name == null){
     	String str = "SELECT p.productId, productName, productPrice, categoryName, AVG(reviewRating) "
 					+"FROM product AS p LEFT JOIN category AS c ON p.categoryId=c.categoryId "
 					+"LEFT JOIN review AS r ON p.productId=r.productId GROUP BY p.productId, productName, productPrice, categoryName ORDER BY productPrice;";
-    	stmt = con.prepareStatement(str);
-		//stmt.setString(1, sort);		
+    	stmt = con.prepareStatement(str);	
 	}
 
 } else {
@@ -96,7 +84,6 @@ if(name == null){
     
 ResultSet rst = stmt.executeQuery();
 
-// For each product create a link of the form
 while(rst.next()){
 	if((category == null) || category.equals(rst.getString(4))) {
 		out.println("<tr>");
@@ -111,12 +98,7 @@ while(rst.next()){
 		out.println("</tr>");
 	}
 }
-// addcart.jsp?id=productId&name=productName&price=productPrice
-// Close connection
-
-// Useful code for formatting currency values:
-// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-// out.println(currFormat.format(5.0);	// Prints $5.00
+closeConnection();
 out.println("</tbody>");
 out.println("</table");
 %>

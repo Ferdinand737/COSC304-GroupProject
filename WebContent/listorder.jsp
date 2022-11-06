@@ -2,10 +2,11 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8"%>
+<%@ include file="jdbc.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>YOUR NAME Grocery Order List</title>
+<title>MAF Grocery Order List</title>
 </head>
 <body>
 
@@ -24,9 +25,9 @@
 </tr>	
 
 <%
-//Note: Forces loading of SQL Server driver
+
 try
-{	// Load driver class
+{	
 	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 }
 catch (java.lang.ClassNotFoundException e)
@@ -34,19 +35,12 @@ catch (java.lang.ClassNotFoundException e)
 	out.println("ClassNotFoundException: " +e);
 }
 
-// Useful code for formatting currency values:
-// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-// out.println(currFormat.format(5.0);  // Prints $5.00
-
-// Make connection
 String url = "jdbc:sqlserver://db:1433;DatabaseName=tempdb;";
 String uid = "SA";
 String pw = "YourStrong@Passw0rd";
-Connection con = DriverManager.getConnection(url, uid, pw);
-// Write query to retrieve all order summary records
+getConnection();
 Statement stmt = con.createStatement();
 ResultSet rst = stmt.executeQuery("SELECT * FROM ordersummary");
-// For each order in the ResultSet
 while (rst.next()){
 
 	Statement stmt2 = con.createStatement();
@@ -73,16 +67,7 @@ while (rst.next()){
 	out.println("</tr>");
 
 }
-	// Print out the order summary information
-	// Write a query to retrieve the products in the order
-	//   - Use a PreparedStatement as will repeat this query many times
-	// For each product in the order
-		// Write out product information 
-
-
-// Close connection
-
-con.close();
+closeConnection();
 %>
 </tbody>
 </table>

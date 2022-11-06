@@ -9,8 +9,6 @@
 
 <h3>Change Password</h3>
 
-
-
 <br>
 <form name="MyForm" method=post action="changepw.jsp">
 <table style="display:inline">

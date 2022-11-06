@@ -47,10 +47,6 @@ void signUp(JspWriter out,HttpServletRequest request, HttpSession session) throw
     }catch(Exception e){
         out.println(e);
     }
-
-    
-
-
     closeConnection();
 }
 %>

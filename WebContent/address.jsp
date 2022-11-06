@@ -9,8 +9,6 @@
 
 <h3>Change Address</h3>
 
-
-
 <br>
 <form name="MyForm" method=post action="changeAdd.jsp">
 <table style="display:inline">

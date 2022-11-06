@@ -17,7 +17,6 @@
 
 <%
 
-// TODO: Print Customer information
 getConnection();
 String sql = "SELECT * FROM customer WHERE userid=?";
 PreparedStatement stmt = con.prepareStatement(sql);
@@ -52,11 +51,8 @@ while(rst2.next()){
 	out.print("</tr>");
 }
 
-
-
 out.print("</table>");
 
-// Make sure to close connection
 closeConnection();
 %>
 

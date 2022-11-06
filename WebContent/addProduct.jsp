@@ -21,7 +21,6 @@ void signUp(JspWriter out,HttpServletRequest request, HttpSession session) throw
     String productDesc = request.getParameter("productDesc");
     int categoryId = Integer.parseInt(request.getParameter("categoryId"));
     
-
     try{
         getConnection();
 
@@ -37,9 +36,6 @@ void signUp(JspWriter out,HttpServletRequest request, HttpSession session) throw
     }catch(Exception e){
         out.println(e);
     }
-
-    
-
 
     closeConnection();
 }

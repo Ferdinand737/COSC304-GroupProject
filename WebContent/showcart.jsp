@@ -25,7 +25,7 @@ th, td {
 }
 </style>
 <%
-// Get the current list of products
+
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
@@ -98,7 +98,7 @@ else
 		out.print("<td><input type=\"submit\" value=\"Update Quantity\"></td></form></tr>");
 		out.println("</tr>");
 		total = total +pr*qty;
-	}//onclick=\"update("+product.get(0)+", document.form1.newqty.value)\"
+	}
 	out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");

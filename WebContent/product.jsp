@@ -16,13 +16,7 @@
 
 <%
 getConnection();
-// Print out the ResultSet
-//Statement stmt = con.createStatement();
-// Get product name to search for
 String id = request.getParameter("id");
-// TODO: Retrieve and display info for the product
-// String productId = request.getParameter("id");
-
 String sql = "SELECT productId, productName, productPrice, productImageURL, productDesc FROM product WHERE productId=?";
 PreparedStatement stmt = con.prepareStatement(sql);
 stmt.setInt(1, Integer.parseInt(id));
@@ -30,21 +24,12 @@ ResultSet rst = stmt.executeQuery();
 rst.next();
 int pId = rst.getInt(1);
 out.println("<h2>"+rst.getString(2)+"</h2>");
-
-// TODO: If there is a productImageURL, display using IMG tag
 out.println("<img src=\""+rst.getString(4)+"\" width=\"200\" height=\"400\">");
 out.println("\n"+"<EM>"+rst.getString(5)+"</EM>");
-//out.println("<img src=\"displayImage.jsp?id="+rst.getInt(1)+"\">");
-
-
-
-// TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as parameter.
 out.println("<table><tbody>");
 out.println("<tr><th>Id</th><th>"+rst.getInt(1)+"</th></tr>");
 out.println("<tr><th>Price</th><th>"+NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3))+"</th></tr>");
 out.println("</table></tbody>");
-
-// TODO: Add links to Add to Cart and Continue Shopping
 String user = (String)session.getAttribute("authenticatedUser");
 String linkAdd = "addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2) + "&price=" + NumberFormat.getCurrencyInstance(Locale.CANADA).format(rst.getDouble(3));
 out.println("<h3><a href=\"listprod.jsp\">Continue Shopping</a></h3>");
@@ -64,9 +49,6 @@ else{
     cId = 1;
 }
 out.println("<h4>Reviews</h4>");
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Checks to see if review has been placed by User, 
-/** @todo user MUST be implemented */ 
 if(user != null){
     if(rst.getInt(1) < 1)
     {
@@ -79,8 +61,6 @@ if(user != null){
         out.print("<input type=\"hidden\" name=\"id\" size=\"0\" value=\""+pId+"\"></form>");
     }
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 String rating = request.getParameter("Rating");
 String review = request.getParameter("Review");
@@ -107,21 +87,17 @@ while (rst.next()) {
     out.println("<tr><th>"+rst.getInt(1)+"</th><th>"+rst.getString(2)+"</th><th>"+rst.getDate(3)+"</th></tr>");
 }
 try{
-    //Selecting warehouse info
     String sql_warehouse = "SELECT warehouse.warehouseName, productinventory.quantity FROM productinventory JOIN warehouse ON warehouse.warehouseId = productinventory.warehouseId WHERE productId=? ";
     PreparedStatement stmt_warehouse = con.prepareStatement(sql_warehouse);
     stmt_warehouse.setInt(1, Integer.parseInt(id));
     ResultSet rst_warehouse = stmt_warehouse.executeQuery();
     rst_warehouse.next();
-    //int pId_warehouse = rst_warehouse.getInt(1);
     out.println("<h2>"+ "Ships From: " +rst_warehouse.getString(1)+"</h2>");
     out.println("<h2>"+ "Amount left: " +rst_warehouse.getInt(2)+"</h2>");
     } catch (Exception e) {
         out.println(e);
         out.println("Warehouse information unavailible");
     }
-
-
 out.println("</table></tbody>");
 %>
 </form>

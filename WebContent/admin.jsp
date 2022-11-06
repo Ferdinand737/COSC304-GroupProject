@@ -100,8 +100,6 @@
 <h2 align="center">List of Customers</h2>
 
 <%
-// print all customers
-
 getConnection();
 
 String sql = "SELECT * FROM customer";
@@ -138,7 +136,6 @@ out.println("</tbody></table>");
 %>
 <h2 align="center">List of Orders</h2>
 <%
-// print all orders
 Double sum = 0.0;
 sql = "SELECT * FROM ordersummary";
 stmt = con.prepareStatement(sql);
@@ -179,7 +176,6 @@ closeConnection();
 
 %>
 <h2 align="center"><a href="loaddata.jsp">Reset Database</a></h2>
-
 
 </body>
 </html>

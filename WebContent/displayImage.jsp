@@ -1,9 +1,7 @@
 <%@ page trimDirectiveWhitespaces="true" import="java.sql.*,java.io.*" %><%@ include file="jdbc.jsp" %><%
 
-// Indicate that we are sending a JPG picture
 response.setContentType("image/jpeg");  
 
-// Get the image id
 String id = request.getParameter("id");
 
 if (id == null)
@@ -18,9 +16,7 @@ catch(Exception e)
 	return; 
 }
 
-// TODO: Modify SQL to retrieve productImage given productId
 String sql = "SELECT productImage FROM product WHERE productId="+id;
-
 
 try 
 {
@@ -34,7 +30,6 @@ try
 
 	if (rst.next())
 	{
-		// Copy stream of bytes from database to output stream for JSP/Servlet
 		InputStream istream = rst.getBinaryStream(1);
 		OutputStream ostream = response.getOutputStream();
 
